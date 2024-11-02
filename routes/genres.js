@@ -7,7 +7,7 @@ const Genre = mongoose.model('Genre', new mongoose.Schema({
     name: {
         type: String,
         required: true,
-        minLength: 4,
+        minLength: 5,
         maxLength: 50
     }
 }));
@@ -56,7 +56,7 @@ router.delete('/:id', async (req, res) => {
 
 function validateGenre(genre) {
     const schema = Joi.object({
-        name: Joi.string().min(3).required()
+        name: Joi.string().min(5).max(50).required()
     });
   
     return schema.validate(genre);
