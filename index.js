@@ -19,4 +19,4 @@ app.listen(port, () => console.log(`Listening on port ${port}...`));
 
 mongoose.connect('mongodb://localhost/movie4u')
     .then(() => console.log('Connected to the mongodb...'))
-    .catch((error) => console.log('Can not connect to the mongodb...', error));
+    .catch((error) => console.error('Can not connect to the mongodb...', error));
