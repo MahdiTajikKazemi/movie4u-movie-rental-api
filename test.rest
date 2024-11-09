@@ -1,0 +1,28 @@
+###
+GET http://localhost:3000/api/users
+
+###
+GET http://localhost:3000/api/users/672f4045ffa058ef8bc837d2
+
+###
+POST http://localhost:3000/api/users
+Content-Type: application/json
+
+{
+    "name": "Mahdi",
+    "email": "Mahdi@example.com",
+    "password": "12345678910"
+}
+
+###
+PUT http://localhost:3000/api/users/672f4045ffa058ef8bc837d2
+Content-Type: application/json
+
+{
+    "name": "Mehdi",
+    "email": "Mahdi@example.com",
+    "password": "12345678910"
+}
+
+###
+DELETE http://localhost:3000/api/users/672f4411b4dbb5ab1d10a89f 
