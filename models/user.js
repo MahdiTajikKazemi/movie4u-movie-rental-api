@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const Joi = require('joi');
+const { lowerCase, upperCase } = require('lodash');
 
 const userSchema = new mongoose.Schema({
     name: {
@@ -34,7 +35,6 @@ function validateUser(user) {
 
     return schema.validate(user);
 }
-
 
 exports.User = User;
 exports.validate = validateUser;
