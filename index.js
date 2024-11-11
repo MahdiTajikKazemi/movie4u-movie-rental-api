@@ -1,6 +1,8 @@
+require('express-async-errors');
 const Joi = require('joi');
 Joi.objectId = require('joi-objectid')(Joi);
 const genres = require('./routes/genres');
+const error = require('./middlewares/error-handler');
 const customers = require('./routes/customers');
 const users = require('./routes/users');
 const movies = require('./routes/movies');
@@ -18,6 +20,7 @@ app.use('/api/movies', movies);
 app.use('/api/rentals', rentals);
 app.use('/api/users', users);
 app.use('/api/auth', auth);
+app.use(error);
 
 if(!config.get('jwtPrivateKey')) {
     console.error('Error: jwtPrivateKey is not defined.');

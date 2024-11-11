@@ -1,3 +1,4 @@
+const asyncMiddleware = require('../middlewares/async-handler');
 const mongoose = require('mongoose');
 const auth = require('../middlewares/auth');
 const admin = require('../middlewares/admin');
@@ -5,6 +6,13 @@ const { Genre, validate} = require('../models/genre');
 const express = require('express');
 const router = express.Router();
 
+// Using manual error handling for routes using custom middleware (async-handler module)
+// router.get('/', asyncMiddleware(async (req, res) => {
+//     const genres = await Genre.find().sort('name');
+//     res.send(genres);
+// }));
+
+// Using express-async-errors for handling errors for routes
 router.get('/', async (req, res) => {
     const genres = await Genre.find().sort('name');
     res.send(genres);
