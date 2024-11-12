@@ -15,7 +15,12 @@ const logger = winston.createLogger({
     ]
 })
 
-if (process.env.NODE_ENV !== 'production')
-    logger.add(new winston.transports.Console({ format: winston.format.json() }));
+if (process.env.NODE_ENV !== 'production') {
+    logger.add(new winston.transports.Console({ format: winston.format.simple()  }));
+    logger.exceptions.handle(new winston.transports.Console({ format: winston.format.simple() }))
+}
+
+
+
 
 module.exports = logger;
