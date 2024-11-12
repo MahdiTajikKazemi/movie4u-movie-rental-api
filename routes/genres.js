@@ -14,6 +14,7 @@ const router = express.Router();
 
 // Using express-async-errors for handling errors for routes
 router.get('/', async (req, res) => {
+    // throw new Error('Could not get the genres');
     const genres = await Genre.find().sort('name');
     res.send(genres);
 });
