@@ -23,9 +23,8 @@ router.post('/', auth, async (req, res) => {
         $inc: { numberInStock: 1 }
     });
 
-    return res.send(rental);
+    res.send(rental);
 });
-
 
 function validateReturn(req) {
     const schema = Joi.object({
