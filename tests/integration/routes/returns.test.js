@@ -46,7 +46,7 @@ describe('/api/returns', () => {
     });
 
     describe('POST /', () => {
-        it('Should return 401 if client is not logged in', async () => {
+        it('Should return 401 if client is not logged in.', async () => {
             token = '';
 
             const res = await exec();
@@ -54,7 +54,7 @@ describe('/api/returns', () => {
             expect(res.status).toBe(401);
         });
 
-        it('Should return 400 if customerId is not provided', async () => {
+        it('Should return 400 if customerId is not provided.', async () => {
             customerId = '';
 
             const res = await exec();
@@ -62,12 +62,20 @@ describe('/api/returns', () => {
             expect(res.status).toBe(400);
         });
 
-        it('Should return 400 if movieId is not provided', async () => {
+        it('Should return 400 if movieId is not provided.', async () => {
             movieId = '';
 
             const res = await exec();
             
             expect(res.status).toBe(400);
+        });
+
+        it('Should return 404 if no rental round for this customer/movie combo.', async () => {
+            await Rental.deleteMany({});
+
+            const res = await exec();
+            
+            expect(res.status).toBe(404);
         });
     });
 });
