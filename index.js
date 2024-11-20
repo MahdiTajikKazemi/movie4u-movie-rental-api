@@ -8,7 +8,7 @@ require('./startup/db')();
 require('./startup/config')();
 require('./startup/validation')();
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3333;
 const server = app.listen(port, () => logger.log('info', `Listening on port ${port}...`));
 
 module.exports = server;
